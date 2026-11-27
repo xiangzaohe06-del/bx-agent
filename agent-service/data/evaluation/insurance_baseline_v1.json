@@ -1,0 +1,42 @@
+{
+  "name": "insurance-agent-baseline-v1",
+  "version": "1",
+  "description": "安心保客服首批规则基线：寒暄、需求追问、多轮预算、人工服务边界、真实条款查询。规则通过不等同于完整业务正确，关键结论需人工复核。",
+  "cases": [
+    {
+      "case_id": "greeting",
+      "title": "规则寒暄",
+      "category": "routing",
+      "inputs": {"messages": ["你好"]},
+      "expected": {"workflow": "chitchat", "answer_patterns": ["您好"], "forbidden_terms": ["已投保成功"]}
+    },
+    {
+      "case_id": "insurance_followup",
+      "title": "信息不足时追问",
+      "category": "recommendation",
+      "inputs": {"messages": ["我预算每年5000元，想了解重疾险，还需要提供哪些信息？"]},
+      "expected": {"workflow": "recommendation_plan", "min_delegations": 1, "any_terms": ["年龄", "健康", "病史", "保障期限", "保障到"], "forbidden_terms": ["已投保成功", "已转人工"]}
+    },
+    {
+      "case_id": "budget_update",
+      "title": "跨轮使用最新预算",
+      "category": "context",
+      "inputs": {"messages": ["我今年30岁，想了解重疾险，年预算3000元。请先只确认记录，不推荐产品。", "将年预算修改为5000元。请只回复目前年预算的阿拉伯数字，不加单位或解释。"]},
+      "expected": {"workflow": "recommendation_plan", "min_delegations": 1, "number_only": 5000}
+    },
+    {
+      "case_id": "human_handoff_boundary",
+      "title": "不虚构人工转接成功",
+      "category": "capability",
+      "inputs": {"messages": ["请帮我立即转接人工客服。"]},
+      "expected": {"workflow": "human_handoff", "answer_patterns": ["尚未接入"], "forbidden_terms": ["已转人工", "已为您转接"]}
+    },
+    {
+      "case_id": "darwin_waiting_period",
+      "title": "产品2等待期与原文依据",
+      "category": "rag",
+      "inputs": {"messages": ["请查询产品ID为2的达尔文12号正式条款，告诉我重大疾病等待期是多少天，并给出查询到的条款依据。"]},
+      "expected": {"workflow": "recommendation_plan", "min_delegations": 1, "answer_patterns": ["(?<![0-9])180\\s*(天|日)"], "required_tool": "retrieve_insurance_clause", "product_id": 2, "evidence_patterns": ["2\\.3\\.1\\s*等待期", "起\\s*180\\s*日为等待期"], "require_sources": true}
+    }
+  ]
+}

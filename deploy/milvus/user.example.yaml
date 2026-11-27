@@ -1,0 +1,3 @@
+# 当前检索使用Python侧的ChatModelReranker，Milvus不需要云端重排API Key。
+# 复制为user.yaml。若之后启用原生云端功能，请仅在被Git排除的本地配置中填写凭据。
+{}

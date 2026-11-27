@@ -1,0 +1,16 @@
+.git
+.tools
+.idea
+.vscode
+.codex
+.agents
+**/.env
+**/.env.*
+**/.venv
+**/node_modules
+**/__pycache__
+**/*.log
+**/dist
+deploy/milvus/user.yaml
+agent-service/data
+release
