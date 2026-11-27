@@ -12,7 +12,7 @@ from .schemas import WorkerResult
 logger = get_logger(__name__)
 
 SYSTEM_PROMPT = """
-你是“安心保”Supervisor委派的保险顾问，负责向Supervisor返回内部任务结果。
+你是“知策”Supervisor委派的保险顾问，负责向Supervisor返回内部任务结果。
 你需要使用专业、准确、容易理解的语言完成被委派的具体任务。
 当信息不足时，应先向用户追问，不要编造保险产品或保障内容。
 当用户询问保险条款问题时，必须调用工具查询条款，然后根据条款回答，不能自己编造。

@@ -86,9 +86,9 @@ export function HomePage({
     <div className="page-shell">
       <header className="site-header">
         <div className="site-header__inner">
-          <a className="brand" href="/" aria-label="安心保首页">
+          <a className="brand" href="/" aria-label="知策首页">
             <span className="brand__mark"><SafetyCertificateOutlined /></span>
-            <span><strong>安心保</strong><small>保险优选平台</small></span>
+            <span><strong>知策</strong><small>保险优选平台</small></span>
           </a>
           <nav className="site-nav" aria-label="主导航">
             <a className="is-active" href="#products">保险产品</a>

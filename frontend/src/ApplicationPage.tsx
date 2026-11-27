@@ -62,7 +62,7 @@ export function ApplicationPage({ session, onBack, onSessionExpired }: Applicati
       <header className="advisor-header">
         <div className="brand">
           <span className="brand__mark"><SafetyCertificateOutlined /></span>
-          <span><strong>安心保</strong><small>投保流程</small></span>
+          <span><strong>知策</strong><small>投保流程</small></span>
         </div>
         <div>
           <span>{session.user.displayName || session.user.username}</span>

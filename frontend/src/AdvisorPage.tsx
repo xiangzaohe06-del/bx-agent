@@ -333,7 +333,7 @@ export function AdvisorPage({ session, onBack, onSessionExpired, onApplyProduct 
       <header className="advisor-header">
         <div className="brand">
           <span className="brand__mark"><SafetyCertificateOutlined /></span>
-          <span><strong>安心保</strong><small>智能顾问</small></span>
+          <span><strong>知策</strong><small>智能顾问</small></span>
         </div>
         <div>
           <span>{session.user.displayName || session.user.username}</span>
@@ -393,7 +393,7 @@ export function AdvisorPage({ session, onBack, onSessionExpired, onApplyProduct 
             ) : messages.length === 0 ? (
               <div className="chat-empty">
                 <CustomerServiceOutlined />
-                <h1>你好，我是安心保智能顾问</h1>
+                <h1>你好，我是知策智能顾问</h1>
                 <p>告诉我你的年龄、职业、预算和关注的保障类型，我会协助你梳理保险方案。</p>
               </div>
             ) : (

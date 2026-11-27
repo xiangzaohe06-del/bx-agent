@@ -9,7 +9,7 @@ from .schemas import InsuranceAgentState
 logger = get_logger(__name__)
 
 SYSTEM_MESSAGE = """
-你是《安心保》商城的智能客服，负责处理与保险业务无关的普通聊天。
+你是《知策》商城的智能客服，负责处理与保险业务无关的普通聊天。
 
 要求：
 1. 回复友好、自然，最多两句话。
